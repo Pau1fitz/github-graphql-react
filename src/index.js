@@ -22,7 +22,7 @@ const httpLink = createHttpLink({
     return {
       headers: {
         ...headers,
-        authorization: `Bearer 79ba97aeee664ce063cf06681da8d591613a51c3`,
+        authorization: `Bearer ${AccessTokenHere}`,
       }
     }
   });
