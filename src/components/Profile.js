@@ -1,23 +1,15 @@
 import React from 'react'
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
 import styled from 'styled-components'
 
-const Profile = ({ data: { viewer } }) => {
-  console.log(viewer)
-  const avatarUrl = viewer ? viewer.avatarUrl : ''
-  const userFullName = viewer ? viewer.name : ''
-  const username = viewer ? viewer.login : ''
-  const location = viewer ? viewer.location : ''
-  const company = viewer ? viewer.company : ''
+const Profile = ({ avatarUrl, userFullName, username, company, location }) => {
   
   return (
     <ProfileSection>
       <ProfilePic src={ avatarUrl } />
       <UsersFullName>{ userFullName }</UsersFullName>
       <UsersName>{ username }</UsersName>
-      <p>{ company }</p>
-      <p>{ location }</p>
+      <Organisation>{ company }</Organisation>
+      <Location>{ location }</Location>
     </ProfileSection>
   )
 }
@@ -44,14 +36,13 @@ const ProfilePic = styled.img`
   width: 230px;
 `
 
-export default graphql(gql`
-  query user {
-    viewer {
-      avatarUrl
-      name
-      login
-      company
-      location
-    }
-  }
-`)(Profile)
+const Organisation = styled.p`
+  font-weight: 600;
+  font-size: 14px;
+`
+
+const Location = styled.p`
+  font-size: 14px;
+`
+
+export default Profile
