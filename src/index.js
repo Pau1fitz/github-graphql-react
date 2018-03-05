@@ -2,36 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Profile from './components/Profile';
-import registerServiceWorker from './registerServiceWorker';
-
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from 'react-apollo';
+import registerServiceWorker from './registerServiceWorker';
 
 const httpLink = createHttpLink({
-    uri: 'https://api.github.com/graphql',
-  });
+  uri: 'https://api.github.com/graphql',
+})
   
-  const authLink = setContext((_, { headers }) => {
-    // get the authentication token from local storage if it exists
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
 
-    // return the headers to the context so httpLink can read them
-    return {
-      headers: {
-        ...headers,
-        authorization: `Bearer ${process.env.REACT_APP_GITHUBTOKEN}`,
-      }
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: `Bearer ${process.env.REACT_APP_GITHUBTOKEN}`,
     }
-  });
+  }
+})
   
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
-  });
-
-console.log('client => ', client);
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+})
 
 ReactDOM.render(
     <ApolloProvider client={client}>
