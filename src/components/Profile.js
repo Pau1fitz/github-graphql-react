@@ -14,7 +14,9 @@ const Profile = ({ avatarUrl, userFullName, username, company, location }) => {
   )
 }
 
-const ProfileSection = styled.section``
+const ProfileSection = styled.section`
+  padding-right: 16px;
+`
 
 const UsersFullName = styled.p`
   font-weight: 600;

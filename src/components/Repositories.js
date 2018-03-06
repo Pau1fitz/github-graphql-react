@@ -10,7 +10,7 @@ const Repo = ({ data: { viewer }}) => {
       <RepoCard key={ repo.node.name }>
         <RepoLink>{ repo.node.name }</RepoLink>
         <RepoDescription>{ repo.node.description }</RepoDescription>
-        <RepoDetails>{ repo.node.languages.edges[0].node.name } { repo.node.stargazers.totalCount } { repo.node.forkCount }</RepoDetails>
+        <RepoDetails>{ repo.node.languages.edges[0].node.name } <i className="fa fa-star" aria-hidden="true"></i> { repo.node.stargazers.totalCount } <i className="fa fa-code-fork" aria-hidden="true"></i> { repo.node.forkCount }</RepoDetails>
       </RepoCard>
     )
   }) : []
@@ -31,7 +31,7 @@ const RepoContainer = styled.div`
 const RepoCard = styled.div`
   border: 1px #d1d5da solid;
   padding: 16px;
-  width: 450px;
+  width: 362px;
   margin-bottom: 16px;
 `
 

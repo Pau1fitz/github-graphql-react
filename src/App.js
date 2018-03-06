@@ -1,11 +1,11 @@
 import React from 'react';
-import Nav from './components/Nav'
-import Profile from './components/Profile'
-
-import Repositories from './components/Repositories'
-
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
+import styled from 'styled-components'
+
+import Nav from './components/Nav'
+import Profile from './components/Profile'
+import Repositories from './components/Repositories'
 
 
 const App = ({ data: { viewer }}) => {
@@ -21,18 +21,29 @@ const App = ({ data: { viewer }}) => {
       <Nav
         avatarUrl={ avatarUrl }
       />
-      <Profile 
-        avatarUrl={ avatarUrl }
-        userFullName={ userFullName }
-        username={ username }
-        location={ location }
-        company={ company }
-      />
 
-      <Repositories />
+      <ProfileContainer>
+        
+        <Profile 
+          avatarUrl={ avatarUrl }
+          userFullName={ userFullName }
+          username={ username }
+          location={ location }
+          company={ company }
+        />
+
+        <Repositories />
+
+      </ProfileContainer>
     </section>
   )
 }
+
+const ProfileContainer = styled.section`
+  display: flex;
+  max-width: 1012px;
+  margin: 0 auto;
+`
 
 export default graphql(gql`
   query user {
