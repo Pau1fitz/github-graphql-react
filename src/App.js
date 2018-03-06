@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Nav from './components/Nav'
 import Profile from './components/Profile'
 import Repositories from './components/Repositories'
+import Followers from './components/Followers'
 
 
 const App = ({ data: { viewer }}) => {
@@ -35,6 +36,8 @@ const App = ({ data: { viewer }}) => {
         <Repositories />
 
       </ProfileContainer>
+
+      <Followers />
     </section>
   )
 }
