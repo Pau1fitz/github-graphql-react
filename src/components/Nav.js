@@ -33,6 +33,7 @@ const Header = styled.header`
   display: flex;
   padding-top: 12px;
   padding-bottom: 12px;
+  align-items: center;
 `
 
 const Logo = styled.svg`
