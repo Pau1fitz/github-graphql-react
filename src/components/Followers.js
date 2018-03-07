@@ -4,16 +4,18 @@ import gql from 'graphql-tag'
 import styled from 'styled-components'
 
 const Followers = ({ data: { viewer }}) => {
-
-
+  
   const followers = viewer ? viewer.followers.edges.map(follower => {
 
     console.log(follower)
     return (
       <FollowersCard key={ follower.node.name }>
-        <FollowersImage src={follower.node.avatarUrl} />
-        <FollowerName>{ follower.node.name }</FollowerName>
-        <FollowerLogin>{ follower.node.login }</FollowerLogin>
+        <FollowerDetailsContainer>
+          <FollowersImage src={follower.node.avatarUrl} />
+          <FollowerName>{ follower.node.name }</FollowerName>
+          <FollowerLogin>{ follower.node.login }</FollowerLogin>
+        </FollowerDetailsContainer> 
+        <FollowerLocation>{ follower.node.location }</FollowerLocation>
       </FollowersCard>
     )
   }) : []
@@ -29,6 +31,10 @@ const FollowersContainer = styled.div`
 
 `
 
+const FollowerDetailsContainer = styled.div`
+  display: flex;
+`
+
 const FollowersImage = styled.img`
   height: 50px;
   width: 50px;
@@ -36,10 +42,8 @@ const FollowersImage = styled.img`
 `
 
 const FollowersCard = styled.div`
-  display: flex;
   border-bottom: 1px #d1d5da solid;
   padding: 16px;
-  width: 362px;
   margin-bottom: 16px;
 `
 
@@ -55,7 +59,11 @@ const FollowerLogin = styled.p`
   padding-left: 4px;
 `
 
-
+const FollowerLocation = styled.p`
+  font-size: 14px;
+  color: #586069;
+  padding-left: 4px;
+`
 
 const FollowersLink = styled.a`
   font-weight: 600;
@@ -77,6 +85,7 @@ query {
             avatarUrl
             name
             login
+            location
           }
         }
       }
