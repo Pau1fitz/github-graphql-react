@@ -2,20 +2,18 @@ import React from 'react';
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
+import moment from 'moment'
 
 const PullRequests = ({ data: { viewer }}) => {
-
-  console.log(viewer)
-
-
   const prs = viewer && viewer.pullRequests ? viewer.pullRequests.edges.map(pr => (
 
     <PRCard key={ pr.node.publishedAt }>
       <Icon className="fa fa-code-fork" aria-hidden="true" />
-      <p>{ pr.node.repository.nameWithOwner }</p>
-      <PRDetails>opened on {`${ pr.node.publishedAt }`} by {`${ pr.node.author.login }`}</PRDetails>
+      <div>
+        <p>{ pr.node.repository.nameWithOwner }</p>
+        <PRDetails>opened on {`${ moment(pr.node.publishedAt).format("ddd MMM YYYY") }`} by {`${ pr.node.author.login }`}</PRDetails>
+      </div>
     </PRCard>
-
   )
 ) : []
 
@@ -26,11 +24,18 @@ const PullRequests = ({ data: { viewer }}) => {
   )
 }
 
-const PRContainer = styled.div`
+const PRContainer = styled.section`
+  width: 980px;
+  margin: 0 auto;
+  border-left: 1px solid #e1e4e8;
+  border-right: 1px solid #e1e4e8;
+  border-top: 1px solid #e1e4e8;
 `
 
 const PRCard = styled.div`
+  display: flex;
   border-bottom: 1px solid #e1e4e8;
+  padding: 8px;
 `
 
 const PRDetails = styled.p`

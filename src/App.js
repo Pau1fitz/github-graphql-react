@@ -24,7 +24,7 @@ const App = ({ data: { viewer }}) => {
 
       <Nav avatarUrl={ avatarUrl }/>
       
-      {/* <ProfileContainer>
+      <ProfileContainer>
         
         <Profile 
           avatarUrl={ avatarUrl }
@@ -42,7 +42,7 @@ const App = ({ data: { viewer }}) => {
           </InformationContainer>
         </div>
         
-      </ProfileContainer> */}
+      </ProfileContainer>
 
       <Route path="/pullrequests" component={PullRequests}/>
     </section>
