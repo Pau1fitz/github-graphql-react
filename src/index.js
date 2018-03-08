@@ -1,12 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
-import { setContext } from 'apollo-link-context';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloProvider } from 'react-apollo';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import { ApolloClient } from 'apollo-client'
+import { createHttpLink } from 'apollo-link-http'
+import { setContext } from 'apollo-link-context'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { ApolloProvider } from 'react-apollo'
+import registerServiceWorker from './registerServiceWorker'
+
+// react-dom (what we'll use here)
+import { BrowserRouter } from 'react-router-dom'
 
 import App from './App'
 
@@ -32,9 +35,11 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
+  <BrowserRouter>
     <ApolloProvider client={client}>
       <App />
-    </ApolloProvider>,
+    </ApolloProvider>
+  </BrowserRouter>,
     document.getElementById('root'),
   );
 registerServiceWorker();

@@ -5,11 +5,11 @@ import styled from 'styled-components'
 
 const Repo = ({ data: { viewer }}) => {
 
-  const repos = viewer ? viewer.repositories.edges.map(repo => (
+  const repos = viewer && viewer.repositories ? viewer.repositories.edges.map(repo => (
       <RepoCard key={ repo.node.name }>
         <RepoLink>{ repo.node.name }</RepoLink>
         <RepoDescription>{ repo.node.description }</RepoDescription>
-        <RepoDetails>{ repo.node.languages.edges[0].node.name } <i className="fa fa-star" aria-hidden="true"></i> { repo.node.stargazers.totalCount } <i className="fa fa-code-fork" aria-hidden="true"></i> { repo.node.forkCount }</RepoDetails>
+        <RepoDetails>{ repo.node.languages.edges[0].node.name } <Icon className="fa fa-star" aria-hidden="true"></Icon> { repo.node.stargazers.totalCount } <Icon className="fa fa-code-fork" aria-hidden="true"></Icon> { repo.node.forkCount }</RepoDetails>
       </RepoCard>
     )
   ) : []
@@ -50,10 +50,15 @@ const RepoDetails = styled.span`
   font-size: 12px;
 `
 
+const Icon = styled.i`
+  margin-left: 16px;
+`
+
 export default graphql(gql`
 query {
   viewer {
     repositories(first:6, orderBy: {field: STARGAZERS, direction: DESC}) {
+      totalCount
       edges {
         node {
           name
