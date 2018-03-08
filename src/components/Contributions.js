@@ -79,4 +79,4 @@ query {
     }
   }
 }
-`)(Repo)
+`)(Contributions)

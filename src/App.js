@@ -9,6 +9,7 @@ import Profile from './components/Profile'
 import Repositories from './components/Repositories'
 import Followers from './components/Followers'
 import ProfileMenu from './components/ProfileMenu'
+import PullRequests from './components/PullRequests'
 
 const App = ({ data: { viewer }}) => {
 
@@ -20,12 +21,10 @@ const App = ({ data: { viewer }}) => {
 
   return (
     <section>
-      <Nav
-        avatarUrl={ avatarUrl }
-      />
 
-
-      <ProfileContainer>
+      <Nav avatarUrl={ avatarUrl }/>
+      
+      {/* <ProfileContainer>
         
         <Profile 
           avatarUrl={ avatarUrl }
@@ -43,7 +42,9 @@ const App = ({ data: { viewer }}) => {
           </InformationContainer>
         </div>
         
-      </ProfileContainer>
+      </ProfileContainer> */}
+
+      <Route path="/pullrequests" component={PullRequests}/>
     </section>
   )
 }
