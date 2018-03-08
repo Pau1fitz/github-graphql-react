@@ -7,38 +7,65 @@ const Followers = ({ data: { viewer }}) => {
   
   const followers = viewer ? viewer.followers.edges.map(follower => {
 
-    console.log(follower)
     return (
       <FollowersCard key={ follower.node.name }>
-        <FollowerDetailsContainer>
+        <FollowersContainer>
+
           <FollowersImage src={follower.node.avatarUrl} />
-          <FollowerName>{ follower.node.name }</FollowerName>
-          <FollowerLogin>{ follower.node.login }</FollowerLogin>
-        </FollowerDetailsContainer> 
-        <FollowerLocation>{ follower.node.location }</FollowerLocation>
+
+          <FollowersInfoContainer>
+
+            <FollowersName>
+              <FollowerName>{ follower.node.name }</FollowerName>
+              <FollowerLogin>{ follower.node.login }</FollowerLogin>
+            </FollowersName>
+
+            
+            <FollowerBio>{ follower.node.bio }</FollowerBio>
+            {follower.node.location && (
+            <div>
+              <Icon className="fa fa-map-marker"></Icon>
+              <FollowerLocation>{ follower.node.location }</FollowerLocation>
+            </div>
+            )}
+          </ FollowersInfoContainer>
+        </FollowersContainer> 
+
       </FollowersCard>
     )
   }) : []
 
   return (
-    <FollowersContainer>
+    <section>
       { followers }
-    </FollowersContainer>
+    </section>
   )
 }
 
-const FollowersContainer = styled.div`
 
+const Icon = styled.i`
+  font-size: 20px;
 `
 
-const FollowerDetailsContainer = styled.div`
+const FollowersContainer = styled.div`
   display: flex;
+`
+
+const FollowersInfoContainer = styled.div`
+  font-size: 12px;
+`
+
+const FollowersName = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 4px;
 `
 
 const FollowersImage = styled.img`
   height: 50px;
   width: 50px;
   border-radius: 3px;
+  margin-right: 5px;
 `
 
 const FollowersCard = styled.div`
@@ -63,6 +90,15 @@ const FollowerLocation = styled.p`
   font-size: 14px;
   color: #586069;
   padding-left: 4px;
+  display: inline-block;
+  margin-bottom: 4px;
+`
+
+const FollowerBio = styled.p`
+  font-size: 14px;
+  color: #586069;
+  padding-left: 4px;
+  margin-bottom: 4px;
 `
 
 const FollowersLink = styled.a`
@@ -86,6 +122,7 @@ query {
             name
             login
             location
+            bio
           }
         }
       }
