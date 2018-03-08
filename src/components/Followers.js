@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const Followers = ({ data: { viewer }}) => {
   
-  const followers = viewer ? viewer.followers.edges.map(follower => {
+  const followers = viewer && viewer.followers ? viewer.followers.edges.map(follower => {
 
     return (
       <FollowersCard key={ follower.node.name }>
@@ -35,6 +35,8 @@ const Followers = ({ data: { viewer }}) => {
     )
   }) : []
 
+  console.log()
+
   return (
     <section>
       { followers }
@@ -44,7 +46,8 @@ const Followers = ({ data: { viewer }}) => {
 
 
 const Icon = styled.i`
-  font-size: 20px;
+  font-size: 18px;
+  margin-left: 4px;
 `
 
 const FollowersContainer = styled.div`
@@ -101,21 +104,11 @@ const FollowerBio = styled.p`
   margin-bottom: 4px;
 `
 
-const FollowersLink = styled.a`
-  font-weight: 600;
-  font-size: 14px;
-  color: #0366d6;
-`
-
-const FollowersDetails = styled.span`
-  color: #586069;
-  font-size: 12px;
-`
-
 export default graphql(gql`
 query {
     viewer {
       followers(first:6) {
+        totalCount
         edges {
           node {
             avatarUrl
@@ -123,6 +116,7 @@ query {
             login
             location
             bio
+            
           }
         }
       }
