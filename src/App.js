@@ -6,10 +6,10 @@ import { Route } from 'react-router-dom'
 
 import Nav from './components/Nav'
 import Profile from './components/Profile'
-
+import Repositories from './components/Repositories'
+import Followers from './components/Followers'
 import ProfileMenu from './components/ProfileMenu'
 import PullRequests from './components/PullRequests'
-import X from './components/X'
 
 const App = ({ data: { viewer }}) => {
 
@@ -23,16 +23,29 @@ const App = ({ data: { viewer }}) => {
     <section>
 
       <Nav avatarUrl={ avatarUrl }/>
-
-      <Route path="/home" render={()=><X 
-        avatarUrl={ avatarUrl }
-        userFullName={ userFullName }
-        username={ username }
-        location={ location }
-        company={ company }
-      />}/>
-
+      
       <Route path="/pullrequests" component={PullRequests}/>
+      
+      <ProfileContainer>
+        
+        <Profile 
+          avatarUrl={ avatarUrl }
+          userFullName={ userFullName }
+          username={ username }
+          location={ location }
+          company={ company }
+        />
+        
+        <div>
+          <ProfileMenu />
+          <InformationContainer>
+            <Route path="/repositories" component={Repositories}/>
+            <Route path="/followers" component={Followers}/>
+          </InformationContainer>
+        </div>
+        
+      </ProfileContainer>
+
     </section>
   )
 }
