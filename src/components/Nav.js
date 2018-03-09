@@ -16,7 +16,10 @@ const Nav = ({ avatarUrl }) => {
 
         <NavContainer>
 
-          <NavLink to="/pullrequests">
+          <NavLink 
+            style={{ textDecoration : 'none' }}
+            to="/pullrequests"
+          >
             <NavItem>Pull Requests</NavItem>
           </NavLink>
           
@@ -62,6 +65,7 @@ const NavItem = styled.li`
   list-style: none;
   font-weight: 600;
   font-size: 14px;
+  text-decoration: none;
 `
 
 const ProfilePic = styled.img`
