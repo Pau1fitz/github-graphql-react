@@ -107,7 +107,7 @@ const FollowerBio = styled.p`
 export default graphql(gql`
 query {
     viewer {
-      followers(first:6) {
+      followers(first:10) {
         totalCount
         edges {
           node {

@@ -24,27 +24,30 @@ const App = ({ data: { viewer }}) => {
 
       <Nav avatarUrl={ avatarUrl }/>
       
+      <Route path="/home">
+        <ProfileContainer>
+          
+          <Profile 
+            avatarUrl={ avatarUrl }
+            userFullName={ userFullName }
+            username={ username }
+            location={ location }
+            company={ company }
+          />
+          
+          <div>
+            <ProfileMenu />
+            <InformationContainer>
+              <Route path="/repositories" component={Repositories}/>
+              <Route path="/followers" component={Followers}/>
+            </InformationContainer>
+          </div>
+        </ProfileContainer>
+      </Route>
+        
+
       <Route path="/pullrequests" component={PullRequests}/>
-      
-      <ProfileContainer>
-        
-        <Profile 
-          avatarUrl={ avatarUrl }
-          userFullName={ userFullName }
-          username={ username }
-          location={ location }
-          company={ company }
-        />
-        
-        <div>
-          <ProfileMenu />
-          <InformationContainer>
-            <Route path="/repositories" component={Repositories}/>
-            <Route path="/followers" component={Followers}/>
-          </InformationContainer>
-        </div>
-        
-      </ProfileContainer>
+
 
     </section>
   )
