@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
+import { Route, Switch } from "react-router-dom"
 
 import Nav from './components/Nav'
 import Profile from './components/Profile'
@@ -14,15 +14,15 @@ import PullRequests from './components/PullRequests'
 const Home = ({ match, avatarUrl, userFullName, username, location, company }) => {
   return (
     <ProfileContainer>
-          
-          <Profile 
+
+          <Profile
             avatarUrl={ avatarUrl }
             userFullName={ userFullName }
             username={ username }
             location={ location }
             company={ company }
           />
-          
+
           <div>
             <ProfileMenu />
             <InformationContainer>
@@ -44,12 +44,9 @@ const App = ({ data: { viewer }}) => {
 
   return (
     <section>
-
       <Nav avatarUrl={ avatarUrl }/>
-    
-      <Router>
       <Switch>
-        <Route path="/home" render={()=><Home 
+        <Route path="/home" render={()=><Home
           avatarUrl={ avatarUrl }
           userFullName={ userFullName }
           username={ username }
@@ -57,11 +54,8 @@ const App = ({ data: { viewer }}) => {
           company={ company }
           />}/>
 
-          <Route path="/pullrequests" component={PullRequests}/>  
+          <Route path="/pullrequests" component={PullRequests}/>
       </Switch>
-    </Router>
-
-
     </section>
   )
 }
