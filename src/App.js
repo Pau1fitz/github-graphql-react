@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import styled from 'styled-components'
-import { Route } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom"
 
 import Nav from './components/Nav'
 import Profile from './components/Profile'
@@ -11,21 +11,9 @@ import Followers from './components/Followers'
 import ProfileMenu from './components/ProfileMenu'
 import PullRequests from './components/PullRequests'
 
-const App = ({ data: { viewer }}) => {
-
-  const avatarUrl = viewer ? viewer.avatarUrl : ''
-  const userFullName = viewer ? viewer.name : ''
-  const username = viewer ? viewer.login : ''
-  const location = viewer ? viewer.location : ''
-  const company = viewer ? viewer.company : ''
-
+const Home = ({ match, avatarUrl, userFullName, username, location, company }) => {
   return (
-    <section>
-
-      <Nav avatarUrl={ avatarUrl }/>
-      
-      <Route path="/home">
-        <ProfileContainer>
+    <ProfileContainer>
           
           <Profile 
             avatarUrl={ avatarUrl }
@@ -43,10 +31,35 @@ const App = ({ data: { viewer }}) => {
             </InformationContainer>
           </div>
         </ProfileContainer>
-      </Route>
-        
+  );
+};
 
-      <Route path="/pullrequests" component={PullRequests}/>
+const App = ({ data: { viewer }}) => {
+
+  const avatarUrl = viewer ? viewer.avatarUrl : ''
+  const userFullName = viewer ? viewer.name : ''
+  const username = viewer ? viewer.login : ''
+  const location = viewer ? viewer.location : ''
+  const company = viewer ? viewer.company : ''
+
+  return (
+    <section>
+
+      <Nav avatarUrl={ avatarUrl }/>
+    
+      <Router>
+      <Switch>
+        <Route path="/home" render={()=><Home 
+          avatarUrl={ avatarUrl }
+          userFullName={ userFullName }
+          username={ username }
+          location={ location }
+          company={ company }
+          />}/>
+
+          <Route path="/pullrequests" component={PullRequests}/>  
+      </Switch>
+    </Router>
 
 
     </section>

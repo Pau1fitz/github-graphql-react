@@ -7,7 +7,7 @@ const Nav = ({ avatarUrl }) => {
   return (
     <HeaderContainer>
       <Header>
-        <NavLink to='/'>
+        <NavLink to='/home'>
           <Logo 
             height="32" 
             viewBox="0 0 16 16" 
