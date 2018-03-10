@@ -31,14 +31,14 @@ const ProfileMenu = ({data: { viewer }}) => (
     <NavLink 
       style={ Linkstyles() }
       activeStyle={ activeStyles() }
-      to="/repositories">Repositories
+      to="/home/repositories">Repositories
       <Counter>{ viewer && viewer.repositories ? viewer.repositories.totalCount : null}</Counter>  
     </NavLink>
       
     <NavLink 
       style={ Linkstyles() }
       activeStyle={ activeStyles() }
-      to="/followers">Followers
+      to="/home/followers">Followers
         <Counter>{ viewer && viewer.followers ? viewer.followers.totalCount : null}</Counter>
     </NavLink>
        

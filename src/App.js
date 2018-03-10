@@ -38,8 +38,8 @@ const App = ({ data: { viewer }}) => {
           <div>
             <ProfileMenu />
             <InformationContainer>
-              <Route path="/repositories" component={Repositories}/>
-              <Route path="/followers" component={Followers}/>
+              <Route path="/home/repositories" component={Repositories}/>
+              <Route path="/home/followers" component={Followers}/>
             </InformationContainer>
           </div>
         </ProfileContainer>
