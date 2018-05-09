@@ -1,0 +1,31 @@
+{
+  "name": "react-github",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "apollo-boost": "^0.1.6",
+    "apollo-cache-inmemory": "^1.1.9",
+    "apollo-client": "^2.2.5",
+    "apollo-link-context": "^1.0.7",
+    "apollo-link-http": "^1.5.2",
+    "github-calendar": "^1.2.1",
+    "gitstar-components": "^1.0.5",
+    "graphql": "^0.13.1",
+    "graphql-tag": "^2.8.0",
+    "lodash": "^4.17.5",
+    "moment": "^2.21.0",
+    "react": "^16.2.0",
+    "react-apollo": "^2.1.4",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "styled-components": "^3.1.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
