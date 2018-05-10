@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import styled from 'styled-components'
-import LoginScreen from './LoginScreen'
-import Nav from './Nav'
-import AppContainer from './App-Container'
+import LoginScreen from './components/LoginScreen'
+import Nav from './components/Nav'
+import AppContainer from './components/App-Container'
 import {
   Loading
 } from 'gitstar-components'
