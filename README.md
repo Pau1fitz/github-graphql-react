@@ -12,7 +12,7 @@ yarn start
 visit http://localhost:3000
 ```
 
-![alt text](https://github.com/Pau1fitz/react-github/blob/master/home.png "Home")
+![alt text](https://github.com/Pau1fitz/react-github/blob/master/github.gif "Home")
 
 ### License
 
