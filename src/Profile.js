@@ -1,19 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Profile = ({ avatarUrl, userFullName, username, company, location }) => (
+const Profile = ({ avatarUrl, userFullName, username, company, location, bio }) => (
   <ProfileSection>
-    { avatarUrl === '' ? <Placeholder /> :  <ProfilePic src={ avatarUrl  } /> } 
+      { avatarUrl === '' ? <Placeholder /> :  <ProfilePic src={ avatarUrl  } /> } 
     <NameSection>
       <UsersFullName>{ userFullName }</UsersFullName>
       <UsersName>{ username }</UsersName>
     </NameSection>
 
+    <BioContainer>
+      { bio ? bio : '' }
+    </BioContainer>
+
     <ProfileDivider />
 
     <LocationSection>
-    <Icon className="fa fa-user" aria-hidden="true" /><Organisation>{ company }</Organisation>
-      <Icon className="fa fa-map-marker" aria-hidden="true" /><Location>{ location }</Location>
+        {company && (
+          <div>
+            <Icon className="fa fa-user" aria-hidden="true" /><Organisation>{ company }</Organisation>
+          </div>
+        )}
+        {location && (
+          <div>
+            <Icon className="fa fa-map-marker" aria-hidden="true" /><Location>{ location }</Location>
+          </div>
+        )}
     </LocationSection>
 
     <ProfileDivider /> 
@@ -43,6 +55,7 @@ const UsersFullName = styled.p`
   font-weight: 600;
   font-size: 26px;
   line-height: 30px;
+  margin: 0;
 `
 
 const UsersName = styled.p`
@@ -51,6 +64,7 @@ const UsersName = styled.p`
   font-weight: 300;
   line-height: 24px;
   color: #666;
+  margin: 0;
 `
 
 const ProfilePic = styled.img`
@@ -69,10 +83,12 @@ const Placeholder = styled.div`
 const Organisation = styled.p`
   font-weight: 600;
   font-size: 14px;
+  margin: 0;
 `
 
 const Location = styled.p`
   font-size: 14px;
+  margin: 0;
 `
 
 const Icon = styled.i`
@@ -81,4 +97,10 @@ const Icon = styled.i`
   margin-top: 3px;
 `
 
+const BioContainer = styled.div`
+  margin-bottom: 12px;
+  max-width: 230px;
+  font-size: 14px;
+  color: #6a737d;
+`
 export default Profile

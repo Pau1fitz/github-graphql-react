@@ -106,6 +106,7 @@ const RepoLink = styled.a`
 const RepoDetails = styled.p`
   color: #586069;
   font-size: 12px;
+  margin: 0;
 `
 
 const Icon = styled.i`

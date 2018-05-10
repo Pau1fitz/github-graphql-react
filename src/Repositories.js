@@ -118,6 +118,7 @@ const Date = styled.p`
   font-size: 12px;
   color: #586069;
   margin-left: 10px;
+  margin-bottom: 0;
 `
 
 const InfoContainer = styled.div`
@@ -150,6 +151,7 @@ const RepoLink = styled.a`
 const RepoDetails = styled.span`
   color: #586069;
   font-size: 12px;
+  margin-bottom: 0;
 `
 
 const Icon = styled.i`

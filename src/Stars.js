@@ -106,7 +106,6 @@ const StarDescription = styled.p`
 const SearchContainer = styled.div`
   border-bottom: 1px solid #d1d5da;
   padding-bottom: 16px;
-
 `
 
 const SearchBox = styled.input`
@@ -122,7 +121,6 @@ const SearchBox = styled.input`
   outline: none;
   box-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
 `
-
 
 const Language = styled.span`
   margin-right: 10px;
@@ -143,12 +141,14 @@ const Icon = styled.i`
 const Date = styled.p`
   font-size: 12px;
   color: #586069;
+  margin-bottom: 0;
 `
 
 const Count = styled.p`
   font-size: 12px;
   color: #586069;
   margin-right: 12px;
+  margin-bottom: 0;
 `
 
 const Name = styled.span`

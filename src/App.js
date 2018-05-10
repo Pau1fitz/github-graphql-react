@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import styled from 'styled-components'
-
-
+import LoginScreen from './LoginScreen'
 import Nav from './Nav'
 import AppContainer from './App-Container'
 import {
@@ -34,7 +33,6 @@ const client = new ApolloClient({
     }
   }
 });
-
 
 class App extends Component {
 
@@ -75,11 +73,10 @@ class App extends Component {
           { this.state.status === STATUS.AUTHENTICATED && (
             <AppContainer />
           )}
+          
           <header>
            { this.state.status === STATUS.INITIAL && (
-            <a href={`https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=user&redirect_uri=${REDIRECT_URI}`}>
-              Login
-            </a>
+            <LoginScreen />
            )}
           </header>
           <Loading

@@ -74,6 +74,7 @@ const FollowerName = styled.p`
   font-size: 16px;
   color: #24292e;
   padding-left: 4px;
+  margin-bottom: 0;
 `
 
 const FollowerLogin = styled.p`
@@ -81,6 +82,7 @@ const FollowerLogin = styled.p`
   color: #586069;
   padding-left: 4px;
   position: relative;
+  margin-bottom: 0;
   top: -1px;
 `
 
