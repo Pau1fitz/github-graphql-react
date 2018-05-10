@@ -1,1 +1,16 @@
-REACT GITHUB
+# React-Github 🎼🎺🎸🎻🎤
+
+This is `React-Github`, a React front end client that communicates with the Github GraphQL API.
+
+See it in action [here](http://pau1fitz.github.io/react-github).
+
+If you wish to run the code locally run the following.
+
+```
+yarn
+yarn start
+visit http://localhost:3000
+```
+### License
+
+Released under the MIT License. Check [LICENSE.md](https://github.com/Pau1fitz/react-spotify/blob/master/LICENSE) for more info.
