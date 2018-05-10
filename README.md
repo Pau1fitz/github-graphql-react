@@ -16,4 +16,4 @@ visit http://localhost:3000
 
 ### License
 
-Released under the MIT License. Check [LICENSE.md](https://github.com/Pau1fitz/react-spotify/blob/master/LICENSE) for more info.
+Released under the MIT License. Check [LICENSE.md](https://github.com/Pau1fitz/react-github/blob/master/LICENSE) for more info.
