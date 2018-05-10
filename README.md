@@ -11,6 +11,9 @@ yarn
 yarn start
 visit http://localhost:3000
 ```
+
+![alt text](https://github.com/Pau1fitz/react-github/blob/master/home.png "Home")
+
 ### License
 
 Released under the MIT License. Check [LICENSE.md](https://github.com/Pau1fitz/react-spotify/blob/master/LICENSE) for more info.
