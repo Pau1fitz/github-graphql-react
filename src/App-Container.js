@@ -31,11 +31,11 @@ const Home = ({ avatarUrl, userFullName, username, location, company }) => {
       <div>
         <ProfileMenu />
         <InformationContainer>
-          <Route exact path="/" component={Overview}/>
-          <Route path="/repositories" component={Repositories}/>
-          <Route path="/followers" component={Followers}/>
-          <Route path="/following" component={Following}/>
-          <Route path="/stars" component={Stars}/>
+          <Route exact path={`${process.env.PUBLIC_URL}/`} component={Overview}/>
+          <Route path={`${process.env.PUBLIC_URL}/repositories`} component={Repositories}/>
+          <Route path={`${process.env.PUBLIC_URL}/followers`}  component={Followers}/>
+          <Route path={`${process.env.PUBLIC_URL}/following`}  component={Following}/>
+          <Route path={`${process.env.PUBLIC_URL}/stars`}  component={Stars}/>
         </InformationContainer>
       </div>
     </ProfileContainer>
@@ -60,10 +60,10 @@ class App extends Component {
           username={ username }
         />
         <Switch>
-          <Route path="/issues" component={Issues}/>
-          <Route path="/pullrequests" component={PullRequests}/>
-          <Route path="/marketplace" component={MarketPlace}/>
-          <Route path="/" render={()=><Home
+          <Route path={`${process.env.PUBLIC_URL}/issues`} component={Issues}/>
+          <Route path={`${process.env.PUBLIC_URL}/pullrequests`} component={PullRequests}/>
+          <Route path={`${process.env.PUBLIC_URL}/marketplace`} component={MarketPlace}/>
+          <Route path={`${process.env.PUBLIC_URL}/`}  render={()=><Home
             avatarUrl={ avatarUrl }
             userFullName={ userFullName }
             username={ username }

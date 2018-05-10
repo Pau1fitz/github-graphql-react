@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import UserMenu from './UserMenu'
 import Search from './Search'
 import Avatar from "./Avatar";
@@ -67,7 +68,7 @@ class Nav extends Component {
     return (
       <HeaderContainer>
         <Header>
-          <NavLink to='/'>
+          <NavLink to={`${process.env.PUBLIC_URL}/`} >
             <Logo 
               height="32" 
               viewBox="0 0 16 16" 
@@ -83,21 +84,21 @@ class Nav extends Component {
             <NavLink 
               style={ linkstyles() }
               activeStyle={ activeStyles() }
-              to="/pullrequests">
+              to={`${process.env.PUBLIC_URL}/pullrequests`}>
               <NavItem>Pull Requests</NavItem>
             </NavLink>
 
             <NavLink 
               style={ linkstyles() }
               activeStyle={ activeStyles() }
-              to="/issues">
+              to={`${process.env.PUBLIC_URL}/issues`}>
               <NavItem>Issues</NavItem>
             </NavLink>
 
             <NavLink 
               style={ linkstyles() }
               activeStyle={ activeStyles() }
-              to="/marketplace">
+              to={`${process.env.PUBLIC_URL}/marketplace`}>
               <NavItem>Marketplace</NavItem>
             </NavLink>
 
@@ -176,4 +177,4 @@ const DropDownCaret = styled.span`
   cursor: pointer;
 `
 
-export default Nav
+export default withRouter(Nav)

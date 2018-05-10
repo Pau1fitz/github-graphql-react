@@ -69,7 +69,6 @@ class App extends Component {
     }
   }
   render() {
-    console.log(this)
     return (
       <ApolloProvider client={client}>
         <section>

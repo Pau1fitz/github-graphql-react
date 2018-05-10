@@ -31,14 +31,14 @@ const ProfileMenu = ({data: { viewer }}) => (
       style={ Linkstyles() }
       activeStyle={ activeStyles() }
       exact
-      to="/">Overview
+      to={`${process.env.PUBLIC_URL}/`} >Overview
     </NavLink>
 
     <NavLink 
       style={ Linkstyles() }
       activeStyle={ activeStyles() }
       exact
-      to="/repositories">Repositories
+      to={`${process.env.PUBLIC_URL}/repositories`} >Repositories
       <Counter>{ viewer && viewer.repositories ? viewer.repositories.totalCount : null}</Counter>  
     </NavLink>
     
@@ -46,14 +46,14 @@ const ProfileMenu = ({data: { viewer }}) => (
       style={ Linkstyles() }
       activeStyle={ activeStyles() }
       exact
-      to="/stars">Stars
+      to={`${process.env.PUBLIC_URL}/stars`} >Stars
       <Counter>{ viewer && viewer.starredRepositories ? viewer.starredRepositories.totalCount : null}</Counter>  
     </NavLink>
       
     <NavLink 
       style={ Linkstyles() }
       activeStyle={ activeStyles() }
-      to="/followers">Followers
+      to={`${process.env.PUBLIC_URL}/followers`} >Followers
         <Counter>{ viewer && viewer.followers ? viewer.followers.totalCount : null}</Counter>
     </NavLink>
 
@@ -61,7 +61,7 @@ const ProfileMenu = ({data: { viewer }}) => (
       style={ Linkstyles() }
       activeStyle={ activeStyles() }
       exact
-      to="/following">Following
+      to={`${process.env.PUBLIC_URL}/following`} >Following
       <Counter>{ viewer && viewer.following ? viewer.following.totalCount : null}</Counter>  
     </NavLink>
 

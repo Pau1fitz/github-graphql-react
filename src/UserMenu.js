@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 const UserMenu = ({ username, id, closeMenu }) => (
   <UserMenuContainer id={ id }>
@@ -67,4 +68,4 @@ const DropDownDivider = styled.li`
   background-color: #e1e4e8;
 `
 
-export default UserMenu
+export default withRouter(UserMenu)
