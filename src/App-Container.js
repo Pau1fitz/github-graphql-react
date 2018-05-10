@@ -16,7 +16,7 @@ import Issues from './Issues'
 import Stars from './Stars'
 import MarketPlace from './MarketPlace'
 
-const Home = ({ avatarUrl, userFullName, username, location, company, bio }) => {
+const Home = ({ avatarUrl, userFullName, username, location, company, bio, organizations }) => {
   return (
     <ProfileContainer>
 
@@ -27,6 +27,7 @@ const Home = ({ avatarUrl, userFullName, username, location, company, bio }) => 
         location={ location }
         company={ company }
         bio={ bio }
+        organizations={ organizations }
       />
 
       <div>
@@ -54,6 +55,7 @@ class App extends Component {
     const location = viewer ? viewer.location : ''
     const company = viewer ? viewer.company : ''
     const bio = viewer ? viewer.bio : ''
+    const organizations = viewer ? viewer.organizations : {}
 
     return (
       <section>
@@ -72,6 +74,7 @@ class App extends Component {
             location={ location }
             company={ company }
             bio={ bio }
+            organizations={ organizations }
           />}/>
 
         </Switch>
@@ -100,6 +103,13 @@ export default graphql(gql`
       company
       location
       bio
+      organizations(first:5) {
+        edges {
+          node {
+            avatarUrl
+          }
+        }
+      }
     }
   }
 `)(App)

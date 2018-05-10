@@ -1,36 +1,50 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Profile = ({ avatarUrl, userFullName, username, company, location, bio }) => (
-  <ProfileSection>
-      { avatarUrl === '' ? <Placeholder /> :  <ProfilePic src={ avatarUrl  } /> } 
-    <NameSection>
-      <UsersFullName>{ userFullName }</UsersFullName>
-      <UsersName>{ username }</UsersName>
-    </NameSection>
+const Profile = ({ avatarUrl, userFullName, username, company, location, bio, organizations }) => {
 
-    <BioContainer>
-      { bio ? bio : '' }
-    </BioContainer>
-
-    <ProfileDivider />
-
-    <LocationSection>
-        {company && (
-          <div>
-            <Icon className="fa fa-user" aria-hidden="true" /><Organisation>{ company }</Organisation>
-          </div>
-        )}
-        {location && (
-          <div>
-            <Icon className="fa fa-map-marker" aria-hidden="true" /><Location>{ location }</Location>
-          </div>
-        )}
-    </LocationSection>
-
-    <ProfileDivider /> 
-  </ProfileSection>
-)
+  const organsiationList = organizations && organizations.edges && organizations.edges.length > 0 ? 
+    organizations.edges.map(org => {
+      return <Avatar src={org.node.avatarUrl} />
+    }) : []
+  
+  return (
+    <ProfileSection>
+        { avatarUrl === '' ? <Placeholder /> :  <ProfilePic src={ avatarUrl  } /> } 
+      <NameSection>
+        <UsersFullName>{ userFullName }</UsersFullName>
+        <UsersName>{ username }</UsersName>
+      </NameSection>
+  
+      <BioContainer>
+        { bio ? bio : '' }
+      </BioContainer>
+  
+      <ProfileDivider />
+  
+      <LocationSection>
+          {company && (
+            <div>
+              <Icon className="fa fa-user" aria-hidden="true" /><Organisation>{ company }</Organisation>
+            </div>
+          )}
+          {location && (
+            <div>
+              <Icon className="fa fa-map-marker" aria-hidden="true" /><Location>{ location }</Location>
+            </div>
+          )}
+      </LocationSection>
+          
+      {organsiationList.length > 0 && (
+        <div>
+          <ProfileDivider />
+          <Organization>Organizations</Organization>
+          <Avatar src={organizations.edges[0].node.avatarUrl} />
+        </div>
+      )}
+    </ProfileSection>
+  )
+}
 
 
 const ProfileSection = styled.section`
@@ -49,6 +63,19 @@ const ProfileDivider = styled.div`
   height: 1px;
   margin: 8px 1px;
   background-color: #e1e4e8;
+`
+
+const Organization = styled.p`
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+`
+
+const Avatar = styled.img`
+  width: 35px;
+  height: 35px;
+  border-radius: 3px;
+  margin-top: 2px;
 `
 
 const UsersFullName = styled.p`
