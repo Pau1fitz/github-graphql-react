@@ -1,4 +1,4 @@
-# React-Github 🎼🎺🎸🎻🎤
+# React-Github 💻👩‍💻💽👨‍💻
 
 This is `React-Github`, a React front end client that communicates with the Github GraphQL API.
 
