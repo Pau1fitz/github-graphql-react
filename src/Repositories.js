@@ -13,6 +13,15 @@ class Repo extends Component {
     filtered: false
   }
 
+  componentDidMount() {
+    if(this.props.data && this.props.data.viewer) {
+      this.setState({
+        login: this.props.data.viewer.login,
+        repos: this.props.data.viewer.repositories.edges
+      })
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.data.viewer.repositories) {
       this.setState({

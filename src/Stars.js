@@ -13,6 +13,14 @@ class Stars extends Component {
     filtered: false
   }
 
+  componentDidMount() {
+    if(this.props.data && this.props.data.viewer) {
+      this.setState({
+        starredRepositories: this.props.data.viewer.starredRepositories.nodes
+      })
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if(nextProps.data.viewer.starredRepositories) {
       this.setState({

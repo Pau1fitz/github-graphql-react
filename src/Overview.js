@@ -7,6 +7,12 @@ import GitHubCalendar from 'github-calendar'
 
 class Overview extends Component {
 
+  componentDidMount() {
+    if(this.props.data && this.props.data.viewer) {
+      new GitHubCalendar('.calendar', this.props.data.viewer.login);
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     new GitHubCalendar('.calendar', nextProps.data.viewer.login);
   }
