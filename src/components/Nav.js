@@ -63,7 +63,7 @@ class Nav extends Component {
   render() {
 
     const { menuOpen } = this.state
-    const { avatarUrl, username } = this.props
+    const { username } = this.props
 
     return (
       <HeaderContainer>

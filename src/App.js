@@ -1,45 +1,41 @@
 import React, { Component } from 'react'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
-import styled from 'styled-components'
 import LoginScreen from './components/LoginScreen'
-import Nav from './components/Nav'
 import AppContainer from './components/App-Container'
 import {
   Loading
 } from 'gitstar-components'
 
 const STATUS = {
-  INITIAL: "initial",
-  LOADING: "loading",
-  FINISHED_LOADING: "finished_loading",
-  AUTHENTICATED: "authenticated"
+  INITIAL: 'initial',
+  LOADING: 'loading',
+  FINISHED_LOADING: 'finished_loading',
+  AUTHENTICATED: 'authenticated'
 };
 
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
 const AUTH_API_URI = process.env.REACT_APP_AUTH_API_URI;
 
 const client = new ApolloClient({
-  uri: "https://api.github.com/graphql",
+  uri: 'https://api.github.com/graphql',
   request: operation => {
-    const token = localStorage.getItem("github_token");
+    const token = localStorage.getItem('github_token');
     if (token) {
       operation.setContext({
         headers: {
           authorization: `Bearer ${token}`
         }
-      });
+      })
     }
   }
-});
+})
 
 class App extends Component {
 
   state = {
     status: STATUS.INITIAL,
     token: null
-  };
+  }
 
   componentDidMount() {
     const storedToken = localStorage.getItem("github_token");
@@ -48,7 +44,7 @@ class App extends Component {
         token: storedToken,
         status: STATUS.AUTHENTICATED
       });
-      return;
+      return
     }
     const code =
       window.location.href.match(/\?code=(.*)/) &&
@@ -58,12 +54,12 @@ class App extends Component {
       fetch(`${AUTH_API_URI}${code}`)
         .then(response => response.json())
         .then(({ token }) => {
-          localStorage.setItem("github_token", token);
+          localStorage.setItem("github_token", token)
           this.setState({
             token,
             status: STATUS.FINISHED_LOADING
-          });
-        });
+          })
+        })
     }
   }
   render() {
@@ -91,14 +87,8 @@ class App extends Component {
           />
         </section>
       </ApolloProvider>
-    );
+    )
   }
 }
 
-const ProfileContainer = styled.section`
-  display: flex;
-  max-width: 1012px;
-  margin: 0 auto;
-`
-
-export default App;
+export default App
