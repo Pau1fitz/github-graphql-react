@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const storedToken = localStorage.getItem("github_token");
+    const storedToken = localStorage.getItem('github_token');
     if (storedToken) {
       this.setState({
         token: storedToken,
@@ -52,7 +52,7 @@ class App extends Component {
       fetch(`${AUTH_API_URI}${code}`)
         .then(response => response.json())
         .then(({ token }) => {
-          localStorage.setItem("github_token", token)
+          localStorage.setItem('github_token', token)
           this.setState({
             token,
             status: STATUS.FINISHED_LOADING
