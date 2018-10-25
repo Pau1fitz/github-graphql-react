@@ -3,9 +3,7 @@ import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import LoginScreen from './components/LoginScreen'
 import AppContainer from './components/App-Container'
-import {
-  Loading
-} from 'gitstar-components'
+import { Loading } from 'gitstar-components'
 
 const STATUS = {
   INITIAL: 'initial',
