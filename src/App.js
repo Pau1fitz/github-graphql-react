@@ -10,14 +10,14 @@ const STATUS = {
   LOADING: 'loading',
   FINISHED_LOADING: 'finished_loading',
   AUTHENTICATED: 'authenticated'
-};
+}
 
-const AUTH_API_URI = process.env.REACT_APP_AUTH_API_URI;
+const AUTH_API_URI = process.env.REACT_APP_AUTH_API_URI
 
 const client = new ApolloClient({
   uri: 'https://api.github.com/graphql',
   request: operation => {
-    const token = localStorage.getItem('github_token');
+    const token = localStorage.getItem('github_token')
     if (token) {
       operation.setContext({
         headers: {
@@ -41,7 +41,7 @@ class App extends Component {
       this.setState({
         token: storedToken,
         status: STATUS.AUTHENTICATED
-      });
+      })
       return
     }
     const code =
@@ -79,7 +79,7 @@ class App extends Component {
               if (this.props.status !== STATUS.AUTHENTICATED) {
                 this.setState({
                   status: STATUS.AUTHENTICATED
-                });
+                })
               }
             }}
           />
