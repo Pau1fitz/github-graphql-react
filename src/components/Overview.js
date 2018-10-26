@@ -9,12 +9,12 @@ class Overview extends Component {
 
   componentDidMount() {
     if(this.props.data && this.props.data.viewer) {
-      new GitHubCalendar('.calendar', this.props.data.viewer.login);
+      new GitHubCalendar('.calendar', this.props.data.viewer.login)
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    new GitHubCalendar('.calendar', nextProps.data.viewer.login);
+    new GitHubCalendar('.calendar', nextProps.data.viewer.login)
   }
 
   render() {
@@ -35,7 +35,7 @@ class Overview extends Component {
           </RepoCard>
         )
       } else {
-        return null;
+        return null
       }
     }) : <LoadingIndicator />
   
