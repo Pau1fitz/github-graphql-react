@@ -9,7 +9,7 @@ const GET_AVATAR = gql`
       avatarUrl
     }
   }
-`;
+`
 
 class UserAvatar extends React.Component {
   render() {
@@ -22,7 +22,7 @@ class UserAvatar extends React.Component {
           return <ProfilePic src={data.viewer.avatarUrl} />;
         }}
       </Query>
-    );
+    )
   }
 }
 
@@ -36,4 +36,4 @@ const ProfilePic = styled.img`
   margin-top: 8px;
 `
 
-export default UserAvatar;
+export default UserAvatar
