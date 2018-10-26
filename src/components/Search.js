@@ -14,11 +14,11 @@ export class Search extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.handleClickOutside.bind(this), true);
+    document.addEventListener('click', this.handleClickOutside.bind(this), true)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.handleClickOutside.bind(this), true);
+    document.removeEventListener('click', this.handleClickOutside.bind(this), true)
   }
 
   handleClickOutside(e) {
@@ -88,4 +88,4 @@ const SearchBar = styled.input`
   }
 `
 
-export default Search;
+export default Search
