@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
 
-const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
-const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
+const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI
 
 const LoginScreen = () => {
 
