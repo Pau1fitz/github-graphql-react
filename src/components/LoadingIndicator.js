@@ -40,4 +40,4 @@ const OctocatContainer = styled.div`
   width: 100%;
 `
 
-export default LoadingIndicator;
+export default LoadingIndicator
