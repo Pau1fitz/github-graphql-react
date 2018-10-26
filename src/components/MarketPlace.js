@@ -6,7 +6,7 @@ import LoadingIndicator from './LoadingIndicator'
 
 const MarketPlace = ({ data }) => {
 
-  let slicedListings;
+  let slicedListings
 
   const listings = data.marketplaceListings ? data.marketplaceListings.nodes.map(listing => {
     return (
