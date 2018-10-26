@@ -41,8 +41,8 @@ const Home = ({ avatarUrl, userFullName, username, location, company, bio, organ
         </InformationContainer>
       </div>
     </ProfileContainer>
-  );
-};
+  )
+}
 
 class App extends Component {
 
