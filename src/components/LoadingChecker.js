@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const STATUS = {
   INITIAL: "initial",
@@ -18,8 +18,8 @@ class LoadingChecker extends React.Component {
         <div style={{ position: "absolute" }}>/>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default LoadingChecker;
+export default LoadingChecker
