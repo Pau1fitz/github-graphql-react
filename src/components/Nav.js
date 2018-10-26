@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import UserMenu from './UserMenu'
 import Search from './Search'
-import Avatar from "./Avatar";
+import Avatar from "./Avatar"
 
 const activeStyles = () => (
   {
